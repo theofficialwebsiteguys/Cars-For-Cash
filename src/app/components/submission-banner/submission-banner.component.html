@@ -1,0 +1,20 @@
+<section class="hero-offer-banner">
+  <!-- Background image -->
+  <div class="hero-background"></div>
+
+  <!-- Overlay content -->
+  <div class="hero-container">
+    <div class="hero-text">
+      <h1>Get Your Free Car Offer Instantly</h1>
+      <p>Submit your car details and receive a fair cash offer within minutes.</p>
+    </div>
+
+    <!-- Floating form -->
+    <form [formGroup]="offerForm" (ngSubmit)="onSubmit()" class="hero-form">
+      <input type="text" placeholder="Year, Make, Model" formControlName="model" class="form-input" />
+      <input type="text" placeholder="Vehicle Condition" formControlName="condition" class="form-input" />
+      <input type="text" placeholder="ZIP Code" formControlName="zipCode" class="form-input" />
+      <button type="submit" class="submit-button">Get My Free Offer</button>
+    </form>
+  </div>
+</section>

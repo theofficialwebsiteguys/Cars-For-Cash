@@ -1,0 +1,9 @@
+.logo-link {
+    display: inline-block;
+    height: 100px;
+}
+.logo-image {
+    height: 120px; 
+    width: auto;
+    object-fit: contain; // Ensure the logo scales nicely
+}

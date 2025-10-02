@@ -1,0 +1,29 @@
+<div class="form-wrapper">
+  <form [formGroup]="offerForm" (ngSubmit)="onSubmit()" class="offer-form">
+    
+    <input 
+      type="text" 
+      placeholder="Year, Make, Model" 
+      formControlName="model" 
+      class="form-input" 
+    />
+
+    <input 
+      type="text" 
+      placeholder="Vehicle Condition" 
+      formControlName="condition" 
+      class="form-input" 
+    />
+
+    <input 
+      type="text" 
+      placeholder="ZIP Code" 
+      formControlName="zipCode" 
+      class="form-input" 
+    />
+
+    <button type="submit" class="submit-button">
+      Get My Free Offer
+    </button>
+  </form>
+</div>

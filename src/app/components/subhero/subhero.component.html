@@ -1,0 +1,12 @@
+<section
+  class="subpage-hero"
+  [ngStyle]="{'background-image': 'url(' + backgroundImage + ')'}"
+>
+  <div class="hero-overlay"></div>
+  <div class="hero-container">
+    <div class="hero-text">
+      <h1>{{ title }}</h1>
+      <p *ngIf="subtitle">{{ subtitle }}</p>
+    </div>
+  </div>
+</section>

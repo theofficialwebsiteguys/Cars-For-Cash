@@ -1,0 +1,9 @@
+<!-- Use conditional rendering to decide between a routerLink (internal) or standard href (external/tel) -->
+<a 
+  [ngClass]="['cta-button', type]" 
+  [attr.href]="isExternalLink() ? link : null"
+  [routerLink]="!isExternalLink() ? link : null"
+  [target]="isExternalLink() && !link.startsWith('tel:') ? '_blank' : '_self'">
+  
+  {{ text }}
+</a>

@@ -1,0 +1,116 @@
+@import '../../../styles/variables';
+
+.how-it-works {
+  padding: 3rem 1.5rem;
+  background: $color-secondary; // Dark navy background
+  position: relative;
+  overflow: hidden;
+
+  // Optional subtle decorative background shapes
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.05;
+    z-index: 0;
+  }
+
+  &::before {
+    width: 300px;
+    height: 300px;
+    background: $color-primary;
+    top: -50px;
+    left: -50px;
+  }
+
+  &::after {
+    width: 500px;
+    height: 500px;
+    background: $color-text-light;
+    bottom: -100px;
+    right: -100px;
+  }
+
+  .container {
+    position: relative; // above background shapes
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 1;
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: $color-text-light;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.125rem;
+      color: rgba($color-text-light, 0.75);
+      margin-bottom: 3rem;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+
+      .step-card {
+        background: $color-text-light;
+        border-radius: 1rem;
+        padding: 2rem 1.5rem;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+
+        &:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+        }
+
+        .step-icon {
+          font-size: 2.5rem;
+          margin-bottom: 1rem;
+          width: 70px;
+          height: 70px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          margin-inline: auto;
+          background: linear-gradient(135deg, $color-primary, lighten($color-primary, 15%));
+          color: $color-text-light;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        h3 {
+          font-size: 1.25rem;
+          font-weight: 600;
+          margin: 1rem 0 0.5rem;
+          color: $color-secondary;
+        }
+
+        p {
+          font-size: 1rem;
+          color: $color-text-dark;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+}
+
+// Mobile adjustments
+@media (max-width: $breakpoint-mobile) {
+  .how-it-works {
+    padding: 4rem 1rem;
+
+    .container {
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}

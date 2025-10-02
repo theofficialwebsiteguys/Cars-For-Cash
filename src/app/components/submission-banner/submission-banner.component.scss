@@ -1,0 +1,105 @@
+@import '../../../styles/variables';
+
+.hero-offer-banner {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $color-text-light;
+  overflow: hidden;
+
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../../../assets/hero.png') center/cover no-repeat;
+    filter: brightness(0.6);
+    z-index: 0;
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 1.5rem;
+    text-align: center;
+
+    .hero-text {
+      margin-bottom: 3rem;
+
+      h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: 1.25rem;
+        color: rgba($color-text-light, 0.9);
+      }
+    }
+
+    .hero-form {
+      background: $color-text-light; // white form
+      padding: 2rem 2.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin: 0 auto;
+      max-width: 1000px;
+
+      @media (max-width: $breakpoint-mobile) {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .form-input {
+        padding: 1rem 1.25rem;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.75rem;
+        font-size: 1rem;
+        color: $color-secondary;
+
+        &::placeholder {
+          color: rgba($color-secondary, 0.6);
+        }
+
+        &:focus {
+          outline: none;
+          border-color: $color-primary;
+          box-shadow: 0 0 0 3px rgba($color-primary, 0.2);
+        }
+      }
+
+      .submit-button {
+        grid-column: 1 / -1;
+        padding: 1.25rem;
+        font-size: 1.25rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 0.75rem;
+        background: $color-primary;
+        color: $color-text-light;
+        cursor: pointer;
+        transition: all 0.25s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px rgba($color-primary, 0.25);
+        }
+
+        &:active {
+          transform: translateY(0);
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}

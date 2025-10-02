@@ -1,0 +1,43 @@
+@import '../../../styles/variables'; // Assuming stylePreprocessorOptions fix in angular.json
+
+.cta-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  border: 2px solid transparent; 
+  white-space: nowrap; // Prevent button text from wrapping
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+
+  // Touch Target Sizing for Mobile
+  @media (max-width: $breakpoint-mobile) {
+      padding: 0.75rem 1rem;
+  }
+}
+
+.primary {
+  background-color: $color-primary;
+  color: $color-text-light;
+
+  &:hover {
+    background-color: darken($color-primary, 8%);
+    box-shadow: 0 4px 10px rgba($color-primary, 0.5);
+  }
+}
+
+.secondary {
+  background-color: transparent;
+  color: $color-primary;
+  border-color: $color-primary;
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-text-light;
+  }
+}

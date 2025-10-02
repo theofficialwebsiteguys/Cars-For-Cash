@@ -1,0 +1,71 @@
+@import '../../../styles/variables';
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #f8fafc, #eef2f7);
+}
+
+.offer-form {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  
+  display: flex;              // 🔥 Use flex instead of grid
+  flex-direction: column;     // Stack inputs vertically
+  gap: 1.25rem;
+
+  max-width: 500px;           // Nice centered card size
+  width: 100%;
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: 1.5rem;
+  }
+}
+
+.form-input {
+  padding: 1rem 1.25rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  background: #e2e2e2;
+  transition: all 0.3s ease;
+  width: 90%;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.2);
+  }
+
+  &::placeholder {
+    color: #9ca3af;
+  }
+}
+
+.submit-button {
+  padding: 1.25rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, $color-primary, darken($color-primary, 8%));
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 0.5rem;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba($color-primary, 0.25);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+}

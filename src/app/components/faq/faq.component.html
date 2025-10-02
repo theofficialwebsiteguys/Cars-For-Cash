@@ -1,0 +1,20 @@
+<section class="faq-section">
+  <div class="faq-container">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <p class="section-subtitle">
+      Answers to the most common questions about our process.
+    </p>
+
+    <div class="faq-list">
+      <div class="faq-item" *ngFor="let faq of faqs; let i = index">
+        <button class="faq-question" (click)="toggleFaq(i)">
+          {{ faq.question }}
+          <i class="fas" [ngClass]="{'fa-chevron-down': !faq.open, 'fa-chevron-up': faq.open}"></i>
+        </button>
+        <div class="faq-answer" [class.open]="faq.open">
+          {{ faq.answer }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

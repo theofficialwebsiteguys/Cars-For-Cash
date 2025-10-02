@@ -1,0 +1,57 @@
+@import '../../../styles/variables';
+
+.subpage-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45); // dark overlay
+}
+
+.subpage-hero {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; // align top
+  padding-top: 120px; // pushes text below fixed header
+  color: $color-text-light;
+  overflow: hidden;
+  background: center/cover no-repeat;
+
+  .hero-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+    padding: 6rem 1.5rem;
+
+    .hero-text {
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 1.25rem;
+        color: rgba($color-text-light, 0.9);
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    min-height: 300px;
+    padding-top: 100px;
+
+    .hero-container .hero-text {
+      h1 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+}

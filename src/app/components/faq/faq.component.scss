@@ -1,0 +1,71 @@
+@import '../../../styles/variables';
+
+.faq-section {
+  background: $color-secondary;
+  color: $color-text-light;
+  padding: 5rem 1.5rem;
+
+  .faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: rgba($color-text-light, 0.7);
+      margin-bottom: 3rem;
+    }
+
+    .faq-list {
+      text-align: left;
+
+      .faq-item {
+        border-bottom: 1px solid rgba($color-text-light, 0.2);
+        margin-bottom: 1rem;
+
+        .faq-question {
+          width: 100%;
+          background: none;
+          border: none;
+          color: $color-text-light;
+          font-weight: 600;
+          font-size: 1rem;
+          padding: 1rem 0;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          cursor: pointer;
+          transition: color 0.3s ease;
+
+          i {
+            margin-left: 1rem;
+            transition: transform 0.3s ease;
+          }
+
+          &:hover {
+            color: $color-primary;
+          }
+        }
+
+        .faq-answer {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease, padding 0.3s ease;
+          font-size: 0.95rem;
+          color: rgba($color-text-light, 0.8);
+
+          &.open {
+            padding: 0.5rem 0;
+            max-height: 300px; // enough for multi-line answers
+          }
+        }
+      }
+    }
+  }
+}
