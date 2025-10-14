@@ -91,8 +91,8 @@
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 22px;
-  height: 16px;
+  width: 40px;
+  height: 20px;
   background: none;
   border: none;
   cursor: pointer;
@@ -115,5 +115,76 @@
   .nav-links,
   .header-ctas {
     display: none;
+  }
+}
+
+
+/* --- Mobile Menu --- */
+.mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(20, 20, 20, 0.97);
+  border-radius: 0 0 1rem 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 0;
+  gap: 1rem;
+  z-index: 99;
+  animation: slideDown 0.3s ease forwards;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: color 0.25s ease;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  app-cta-button {
+    button {
+      font-size: 1rem;
+      padding: 0.7rem 1.5rem;
+      border-radius: 30px;
+    }
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .nav-links,
+  .header-ctas {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .header {
+    width: calc(100% - 1.5rem);
+    top: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.75rem;
   }
 }

@@ -15,13 +15,14 @@ export class HeaderComponent {
     { label: 'How It Works', link: '/how-it-works' },
     { label: 'About Us', link: '/about' },
   ];
+  
+  isMenuOpen = false;
 
-  isMenuOpen: boolean = false;
-
-  /**
-   * Toggles the visibility of the mobile menu.
-   */
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu() {
+    this.isMenuOpen = false;
   }
 }

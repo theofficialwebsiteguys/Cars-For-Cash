@@ -1,0 +1,34 @@
+<section class="gallery">
+  <div class="container">
+    <!-- Section 1: Cars for Sale -->
+    <div class="gallery-section for-sale">
+      <h2 class="section-title">Cars For Sale</h2>
+      <p class="section-subtitle">
+        Browse our available cars currently for sale — ready for pickup or delivery.
+      </p>
+
+      <div class="gallery-grid">
+        <div class="gallery-card" *ngFor="let car of getCarsByStatus('For Sale')">
+          <img [src]="car.image" alt="car" loading="lazy" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- Section 2: Sold & Towed -->
+    <div class="gallery-section sold-towed">
+      <h2 class="section-title">Bought & Towed Cars</h2>
+      <p class="section-subtitle">
+        A look at vehicles we've recently bought and towed.
+      </p>
+
+      <div class="gallery-grid">
+        <div class="gallery-card" *ngFor="let car of getCarsByStatus(['Sold', 'Towed'])">
+          <img [src]="car.image" alt="car" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -6,10 +6,11 @@ import { AboutComponent } from '../about/about.component';
 import { FaqComponent } from '../faq/faq.component';
 import { SubmissionBannerComponent } from '../submission-banner/submission-banner.component';
 import { FooterComponent } from '../footer/footer.component';
+import { ReviewsComponent } from '../reviews/reviews.component';
 
 @Component({
   selector: 'app-home',
-  imports: [HeaderComponent, HeroSectionComponent, HowItWorksComponent, AboutComponent, FaqComponent, SubmissionBannerComponent, FooterComponent],
+  imports: [HeaderComponent, HeroSectionComponent, HowItWorksComponent, AboutComponent, FaqComponent, SubmissionBannerComponent, FooterComponent, ReviewsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

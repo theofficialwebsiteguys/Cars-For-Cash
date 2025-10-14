@@ -51,3 +51,29 @@ app-quick-offer-form {
   flex: 0 0 450px;
   z-index: 2;
 }
+
+
+
+/* Mobile phones */
+@media (max-width: 600px) {
+  .hero {
+    height: auto;
+    min-height: 100vh;
+    padding: 4rem 1rem;
+    background-position: center top;
+    background-size: cover;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  app-quick-offer-form {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    flex: 100%;
+    z-index: 2;
+  }
+
+}

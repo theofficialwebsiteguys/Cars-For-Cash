@@ -103,3 +103,9 @@
     }
   }
 }
+
+@media (max-width: $breakpoint-mobile) {
+  .hero-offer-banner {
+    min-height: 700px;
+  }
+}
