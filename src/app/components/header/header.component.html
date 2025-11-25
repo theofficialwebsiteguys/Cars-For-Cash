@@ -3,9 +3,10 @@
 
   <!-- Desktop Nav -->
   <nav class="nav-links">
-    <a routerLink="/how-it-works" (click)="closeMenu()">How It Works</a>
-    <a routerLink="/about" (click)="closeMenu()">About Us</a>
-    <a routerLink="/gallery" (click)="closeMenu()">Gallery</a>
+    <a routerLink="/buy-sell" (click)="closeMenu()">Buy & Sell</a>
+    <a routerLink="/lease" (click)="closeMenu()">Lease With Us</a>
+    <a routerLink="/gallery" (click)="closeMenu()">Our Cars</a>
+    <a routerLink="/about" (click)="closeMenu()">About</a>
   </nav>
 
   <div class="header-ctas">
@@ -19,9 +20,10 @@
 
   <!-- Mobile Dropdown Menu -->
   <div class="mobile-menu" *ngIf="isMenuOpen">
-    <a routerLink="/how-it-works" (click)="closeMenu()">How It Works</a>
-    <a routerLink="/about" (click)="closeMenu()">About Us</a>
-    <a routerLink="/gallery" (click)="closeMenu()">Gallery</a>
+    <a routerLink="/buy-sell" (click)="closeMenu()">Buy & Sell</a>
+    <a routerLink="/lease" (click)="closeMenu()">Lease With Us</a>
+    <a routerLink="/gallery" (click)="closeMenu()">Our Cars</a>
+    <a routerLink="/about" (click)="closeMenu()">About</a>
     <app-cta-button text="Call Us" type="secondary"></app-cta-button>
   </div>
 </header>

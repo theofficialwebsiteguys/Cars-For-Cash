@@ -14,7 +14,7 @@ export class CtaButtonComponent {
 
   // Sets the destination link (e.g., "/offer" or "tel:12345")
   // Use 'link' for router navigation, 'href' for external/tel links
-  @Input() link: string = '#';
+  @Input() link: string = 'tel:8457099433';
 
   /**
    * Defines the button's style.

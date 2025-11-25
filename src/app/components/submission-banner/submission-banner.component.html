@@ -11,6 +11,8 @@
 
     <!-- Floating form -->
     <form [formGroup]="offerForm" (ngSubmit)="onSubmit()" class="hero-form">
+      <input type="text" placeholder="Email" formControlName="email" class="form-input" />
+      <input type="text" placeholder="Phone" formControlName="phone" class="form-input" />
       <input type="text" placeholder="Year, Make, Model" formControlName="model" class="form-input" />
       <input type="text" placeholder="Vehicle Condition" formControlName="condition" class="form-input" />
       <input type="text" placeholder="ZIP Code" formControlName="zipCode" class="form-input" />

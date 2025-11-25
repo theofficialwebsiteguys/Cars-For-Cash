@@ -114,3 +114,117 @@
     }
   }
 }
+
+
+@import '../../../styles/variables';
+
+  .gallery-section {
+      background: $color-secondary;
+    color: $color-text-light;
+    padding: 5rem 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 5rem;
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: $color-secondary;
+      color: $color-text-light;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-subtitle {
+      font-size: 1.125rem;
+      color: rgba($color-text-light, 0.75);
+      margin-bottom: 3rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      gap: 1.5rem;
+      justify-items: center;
+
+      // Responsive columns
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .gallery-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+
+      // Uniform image frame — adjust this ratio if you prefer taller or wider cards
+      aspect-ratio: 4 / 3;
+      background: #1a1a1a;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;      // fills without stretching
+        object-position: center;
+        display: block;
+        transition: transform 0.4s ease;
+      }
+
+      &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+
+        img {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+
+
+/* =============================
+   RESPONSIVE BEHAVIOR
+============================= */
+
+// Tablets (2 columns)
+@media (max-width: 1024px) {
+    .gallery-section {
+      .section-title {
+        font-size: 2.2rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.25rem;
+      }
+
+      .gallery-card {
+        aspect-ratio: 4 / 3;
+      }
+    }
+}
+
+// Mobile (1 column)
+@media (max-width: 600px) {
+    .gallery-section {
+      margin-bottom: 4rem;
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .gallery-card {
+        aspect-ratio: 16 / 9; // make slightly wider for mobile
+        border-radius: 0.75rem;
+      }
+    }
+}

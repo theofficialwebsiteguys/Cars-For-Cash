@@ -4,42 +4,45 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
+  padding: 2rem;
   background: linear-gradient(135deg, #f8fafc, #eef2f7);
+  border-radius: 12px;
 }
 
 .offer-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1rem;
   background: #fff;
-  padding: 2rem 2.5rem;
+  padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
-  
-  display: flex;              // 🔥 Use flex instead of grid
-  flex-direction: column;     // Stack inputs vertically
-  gap: 1.25rem;
-
-  max-width: 500px;           // Nice centered card size
+  max-width: 540px;
   width: 100%;
+  box-sizing: border-box;
 
-  @media (max-width: $breakpoint-mobile) {
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr; // stack vertically on mobile
     padding: 1.5rem;
   }
 }
 
+/* Inputs */
 .form-input {
-  padding: 1rem 1.25rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.75rem;
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
   font-size: 1rem;
-  background: #e2e2e2;
-  transition: all 0.3s ease;
-  width: 90%;
+  background: #f3f4f6;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
 
   &:focus {
     outline: none;
     border-color: $color-primary;
     background: #fff;
-    box-shadow: 0 0 0 3px rgba($color-primary, 0.2);
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.15);
   }
 
   &::placeholder {
@@ -47,21 +50,34 @@
   }
 }
 
+/* Ensure consistent top row and bottom row alignment */
+.form-input:nth-child(1),
+.form-input:nth-child(2) {
+  margin-top: 0.25rem;
+}
+
+.form-input:nth-child(3),
+.form-input:nth-child(4) {
+  margin-bottom: 0.5rem;
+}
+
+/* Submit button */
 .submit-button {
-  padding: 1.25rem;
-  font-size: 1.25rem;
+  grid-column: 1 / -1; // spans both columns
+  padding: 1rem;
+  font-size: 1.1rem;
   font-weight: 600;
   border: none;
-  border-radius: 0.75rem;
-  background: linear-gradient(135deg, $color-primary, darken($color-primary, 8%));
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, $color-primary, darken($color-primary, 7%));
   color: #fff;
   cursor: pointer;
   transition: all 0.25s ease;
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba($color-primary, 0.25);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba($color-primary, 0.25);
   }
 
   &:active {

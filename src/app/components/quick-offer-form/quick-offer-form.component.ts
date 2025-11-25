@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { OfferInputComponent } from '../offer-input/offer-input.component';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { EmailService } from '../../email.service';
 
 @Component({
   selector: 'app-quick-offer-form',
@@ -16,11 +17,12 @@ export class QuickOfferFormComponent {
   @Output() formSubmit = new EventEmitter<any>();
 
   // Inject FormBuilder for easy form creation
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private emailService: EmailService) {}
 
   ngOnInit(): void {
     // Initialize the reactive form controls and their validation rules
     this.offerForm = this.fb.group({
+      phone: ['', [Validators.required]],
       model: ['', [Validators.required, Validators.maxLength(100)]], // Year, Make, Model
       condition: ['', Validators.required],                         // Vehicle Condition
       zipCode: ['', [Validators.required, Validators.pattern(/^\d{5}$/)]] // 5-digit US ZIP code pattern
@@ -32,21 +34,24 @@ export class QuickOfferFormComponent {
    */
   onSubmit(): void {
     if (this.offerForm.valid) {
-      // Emit the form data to the parent component (e.g., HeroSection)
-      this.formSubmit.emit(this.offerForm.value);
+        const formData = this.offerForm.value;
 
-      // In a real application, you would typically call a data service here:
-      // this.carService.submitOfferRequest(this.offerForm.value).subscribe(response => { ... });
-
-      console.log('Form Submitted:', this.offerForm.value);
-      alert('Offer request sent! We will contact you shortly.');
-
-      // Reset the form after successful submission
-      this.offerForm.reset();
-    } else {
-      // Mark all fields as touched to display validation errors
-      this.offerForm.markAllAsTouched();
-      alert('Please fill out all required fields correctly.');
-    }
+        // Send email via EmailService
+        this.emailService.submitForm(formData).subscribe({
+          next: (res) => {
+            console.log('Email sent successfully:', res);
+            alert('Offer request sent! We will contact you shortly.');
+            this.offerForm.reset();
+            this.formSubmit.emit(formData);
+          },
+          error: (err) => {
+            console.error('Email sending failed:', err);
+            alert('There was an issue sending your offer request. Please try again.');
+          }
+        });
+      } else {
+        this.offerForm.markAllAsTouched();
+        alert('Please fill out all required fields correctly.');
+      }
   }
 }
